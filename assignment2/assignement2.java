@@ -11,11 +11,12 @@ import assignment2.data.User;
 import assignment2.exceptions.InvalidCourseException;
 import assignment2.util.DiskManager;
 import assignment2.view.InitPromptBarView;
-public class assignement2 {	 
-	 public static void main(String[] args) {
-		 Set<User> _users = new TreeSet<User>();
-		 InitPromptBarView.initPrompt(_users);
+public class Assignement2 {	 
+	 public static void main(String[] args) 
+	 {
+		 Set<User> users = new TreeSet<User>();
+		 InitPromptBarView.initPrompt(users);
 		 
-	    }
+	 }
 
 }

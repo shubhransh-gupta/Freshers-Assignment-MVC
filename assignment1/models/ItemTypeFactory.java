@@ -2,26 +2,28 @@ package assignment1.models;
 
 public class ItemTypeFactory{
 	private double price;
-    //private double tax;
-    public ItemTypeFactory(double price) {
+    
+    public ItemTypeFactory(double price) 
+    {
         this.price = price;
-    }
-  
-     public Double calcTax(String type) {
-	   Item _item;
-	   switch (type) {
+    }  
+    //based on the item type fetch the tax using factory
+    public Double calcTax(String type) 
+    {
+	   Item tempItem;
+	   switch (type) 
+	   {
        case "raw":
-                 _item= new RawItem(this.price);
-                 return _item.getterTax();
+                 tempItem= new RawItem(this.price);
+                 return tempItem.fetchingTax();
        case "manufactured":
-    	   _item= new ManufacturedItem(this.price);
-           return _item.getterTax();
+    	         tempItem= new ManufacturedItem(this.price);
+                 return tempItem.fetchingTax();
        case "imported":
-    	   _item= new ImportedItem(this.price);
-           return _item.getterTax();
+    	         tempItem= new ImportedItem(this.price);
+                 return tempItem.fetchingTax();
        default:
-           return null;
-   }
-   }
-  
+                 return null;
+       }
+    }  
 }
