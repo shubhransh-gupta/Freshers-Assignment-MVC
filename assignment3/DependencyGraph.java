@@ -16,7 +16,7 @@ public class DependencyGraph {
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node tempNode=null;
             for(Node temp:nodeList) {
-                if(temp.getNodeid()==nodeId) {
+                if(temp.getNodeId()==nodeId) {
                     tempNode=temp;
                 }
             }
@@ -38,7 +38,7 @@ public class DependencyGraph {
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node tmpNode=null;
             for(Node tmp:nodeList) {
-                if(tmp.getNodeid()==nodeId) {
+                if(tmp.getNodeId()==nodeId) {
                     tmpNode=tmp;
                 }
             }
@@ -60,7 +60,7 @@ public class DependencyGraph {
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node tmpNode=null;
             for(Node tmp:nodeList) {
-                if(tmp.getNodeid()==nodeId) {
+                if(tmp.getNodeId()==nodeId) {
                     tmpNode=tmp;
                 }
             }
@@ -82,7 +82,7 @@ public class DependencyGraph {
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node tmpNode=null;
             for(Node tmp:nodeList) {
-                if(tmp.getNodeid()==nodeId) {
+                if(tmp.getNodeId()==nodeId) {
                     tmpNode=tmp;
                 }
             }
@@ -106,10 +106,10 @@ public class DependencyGraph {
             Node parent_node=null;
             Node child_node=null;
             for(Node tmp:nodeList) {
-                if(tmp.getNodeid()==parent_id) {
+                if(tmp.getNodeId()==parent_id) {
                     parent_node=tmp;
                 }
-                if(tmp.getNodeid()==child_id) {
+                if(tmp.getNodeId()==child_id) {
                     child_node=tmp;
                 }
             }
@@ -136,10 +136,10 @@ public class DependencyGraph {
             Node parent_node=null;
             Node child_node=null;
             for(Node tmp:nodeList) {
-                if(tmp.getNodeid()==parent_id) {
+                if(tmp.getNodeId()==parent_id) {
                     parent_node=tmp;
                 }
-                if(tmp.getNodeid()==child_id) {
+                if(tmp.getNodeId()==child_id) {
                     child_node=tmp;
                 }
             }
@@ -182,6 +182,6 @@ public class DependencyGraph {
         } catch(NumberFormatException e) {
             System.out.println("Invalid Input type!");
         }
-    }
+    }    
     
 }
