@@ -29,8 +29,7 @@ public class InitPromptBarView {
 			        		   try {
 			        			   users.add(UserManager.addUser());
 			        		   } 
-			        		   catch (InvalidUserDetailException e) 
-			        		   {
+			        		   catch (InvalidUserDetailException e){
 			        			   System.out.println("Invalid Details entered : " + e.getMessage());
 			        		   }
 			        		   break;

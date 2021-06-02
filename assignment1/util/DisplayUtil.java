@@ -3,18 +3,18 @@ import assignment1.models.Item;
 import java.util.ArrayList;
 
 public class DisplayUtil {
-	public static void display(ArrayList<Item> items) 
+	public static void displayItems(ArrayList<Item> items) 
 	{
 		// Iterating over the ArrayList and displaying all the Item Variables if it have.
     	for(int i=0;i<items.size();i++) 
     	{
     		Item item=items.get(i);
-    		if(item.getType()=="") 
+    		if(item.getType().equals("")) //reverse for null safety
     		{
         		System.out.println("Type field is missing!");
         		continue;
         	}
-    		if(item.getName()=="") 
+    		if(item.getName().equals("")) 
     		{
     			System .out.println("Name not entered!");
     		}

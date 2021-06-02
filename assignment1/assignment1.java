@@ -18,12 +18,12 @@ public class Assignment1 {
         	input+=scanner.nextLine();
         	String inputArray[]=input.split(" ");
         	Item currentItem = new Item();
-        	currentItem.getItemDetails(inputArray);
+        	currentItem.setItemDetails(inputArray); //move to utils
         	items.add(currentItem);
         	System.out.println("Do you want to enter details of other items (y/n):");
         	choice=scanner.next().charAt(0);
            } while(choice=='y');
-        DisplayUtil.display(items);
+        DisplayUtil.displayItems(items); //rename 
         scanner.close();
 	}
 

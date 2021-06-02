@@ -12,32 +12,38 @@ import java.util.TreeSet;
 import assignment2.data.User;
 
 public class DiskManager {
-	public static Set<User> getUsers() {
+	public static Set<User> getUsers() 
+	{
         FileInputStream fstream = null;
         Set<User> users = new TreeSet<>();
         try {
             fstream = new FileInputStream("data.txt");
             ObjectInputStream objectInputStream = new ObjectInputStream(fstream);
             users = (Set<User>) objectInputStream.readObject();
-        } catch (FileNotFoundException e) {
-            System.out.println("No User details stored in disk yet.");
-        } catch (IOException e) {
+            objectInputStream.close();
+        } 
+        catch (FileNotFoundException e){
+        	System.out.println("No User details stored in disk yet.");
+        } 
+        catch (IOException e){
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } 
+        catch (ClassNotFoundException e){
             e.printStackTrace();
         }
         return users;
-    }
+   }
    public static void saveOnDisk(Set<User> users) {
 	   try {
-           FileOutputStream fos = new FileOutputStream("data.txt");
-           ObjectOutputStream oos = new ObjectOutputStream(fos);
-           oos.writeObject(users);
-           oos.close();
+           FileOutputStream fileOutputStream = new FileOutputStream("data.txt");
+           ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+           objectOutputStream.writeObject(users);
+           objectOutputStream.close();
            System.out.println("Saved Sucessfully");
-        } catch(Exception e) {
+       } 
+	   catch(Exception e) {
            System.out.println("Error Occurred : " + e.getMessage());
-        }
+	   }
 	   return;
    }
 }

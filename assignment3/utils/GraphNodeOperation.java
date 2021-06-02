@@ -4,21 +4,27 @@ import assignment3.models.Node;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class GraphNodeOperations{
+public class GraphNodeOperation{
+	//storing the individual nodes on graph
     static private ArrayList<Node> nodeList=new ArrayList<Node>();
-    public static void createNodeUtil(int node_id,String node_name) {
+    //creating nodes
+    public static void createNodeUtil(int nodeId,String nodeName) {
         Node node=new Node();
-        node.setNodeId(node_id);
-        node.setNodeName(node_name);
+        node.setNodeId(nodeId);
+        node.setNodeName(nodeName);
         nodeList.add(node);
     }
-    public static ArrayList<Node> getNodeList() {
+    //retrieving node list 
+    public static ArrayList<Node> getNodeList() 
+    {
         return nodeList;
     }
-    public static void deleteNodeUtil(int node_id) {
+    //delete a particular node whose id is given by user, remove the dependencies with the parent as well as child
+    public static void deleteNodeUtil(int nodeId) 
+    {
         Node currentNode=null;
         for(Node temp:nodeList) {
-            if(temp.getNodeid()==node_id) {
+            if(temp.getNodeid()==nodeId) {
                 currentNode=temp;
                 break;
             }
@@ -31,23 +37,28 @@ public class GraphNodeOperations{
                 temp.parents.remove(currentNode);
                 temp.children.remove(currentNode);
             }
-            System.out.println("Node with "+node_id+" deleted!");
+            System.out.println("Node with "+nodeId+" deleted!");
         }
     }
-    public static void displayParentsUtil(Node node) {
+    //display parent nodes of a given node
+    public static void displayParentsUtil(Node node) 
+    {
         System.out.println("The parents of the node are ");
         for(Node parent:node.parents) {
             System.out.println(parent);
         }
     }
-    public static void displayChildrenUtil(Node node) {
+    //display children nodes of a given node
+    public static void displayChildrenUtil(Node node) 
+    {
         System.out.println("The children of the node are ");
         for(Node child:node.children) {
             System.out.println(child);
         }
     }
-
-    public static void displayAncestorsUtil(Node node) {
+    //display all ancestors of a given node
+    public static void displayAncestorsUtil(Node node) 
+    {
         HashSet<Node> parents=node.parents;
         if(parents==null) {
             System.out.println("No ancestors!");
@@ -56,13 +67,16 @@ public class GraphNodeOperations{
             System.out.println("Ancestors are:");
             for(Node p:parents) {
                 System.out.println(p);
+              //recursively call to find more ancestors of parent also
                 displayAncestorsUtil(p);
             }
         }
     }
-
-    public static void displayDescendantsUtil(Node node) {
+    //display all the descendants of a given node
+    public static void displayDescendantsUtil(Node node) 
+    {
         HashSet<Node> children=node.children;
+        //terminating condition
         if(children==null) {
             System.out.println("No descendants!");
             return;
@@ -70,6 +84,7 @@ public class GraphNodeOperations{
             System.out.println("Descendants are :");
             for(Node child:children) {
                 System.out.println(child);
+                //recursively call to find more descendants of child also
                 displayDescendantsUtil(child);
             }
         }
