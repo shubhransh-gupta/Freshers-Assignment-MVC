@@ -105,14 +105,14 @@ public class UserManager {
 		System.out.println("Enter roll number : ");
 		Scanner in = new Scanner(System.in);
         int rollno=in.nextInt();
-        //handling -ve testcases
+        //handling negative test cases
         if(rollno<=0) 
         {
         	 System.out.println("Invalid Roll number ! It must be an +ve integer ");
         	 in.close();	
         	 return;
         }
-        //searching the person with the given rollno and delete it
+        //searching the person with the given roll no and delete it
         final User[] filteredUser = {null};
         user.stream().filter(e -> e.getRollNumber() == rollno).findFirst().ifPresent(u -> filteredUser[0] = u);
         User userTobeDeleted = filteredUser[0];

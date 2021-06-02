@@ -15,10 +15,12 @@ public class Item  {
 		    // TODO Specialized constructor for child classes
 	        this.price = price;	        
 	}
+	/*this will calculate and set the tax based on the item type
+	 
+	*/
 	public void setTax(String type) 
-	{       //this will calculate and set the tax based on the item type, context of factory design pattern 
-		    this.type=type;
-		    //context of Factory Design pattern 
+	{       
+		    this.type=type;		
 			ItemTypeFactory itemFactory = new ItemTypeFactory(this.price);
 			Double tax = itemFactory.calcTax(type);
 			if(tax==null) 
@@ -31,7 +33,7 @@ public class Item  {
     {
 			this.price = price;
 	}
-    public Double fetchingTax() 
+    public Double fetchingTax() //convention
     {
      	    return null;
     }
@@ -55,7 +57,7 @@ public class Item  {
     {
     		return tax;
     }
-    public void getItemDetails(String[] args) 
+    public void setItemDetails(String[] args) 
     {
     		for(int i=0;i<args.length;i++) 
     		{

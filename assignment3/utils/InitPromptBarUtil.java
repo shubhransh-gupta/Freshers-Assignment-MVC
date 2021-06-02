@@ -6,9 +6,11 @@ import java.util.Scanner;
 
 public class InitPromptBarUtil {  
   public static void initPromptBar() {
-	  Scanner scanner =new Scanner(System.in);     
-	  HashSet<Integer> _uniqueId=new HashSet<Integer>();  //to store unique node_id for each nodes
+	  Scanner scanner =new Scanner(System.in);
+	  //to store unique node Id for each nodes
+	  HashSet<Integer> uniqueId=new HashSet<Integer>();  
       int choice=0;
+      //display the menu options as mentioned in ProblemStatement
       while(choice<9) {
           System.out.println("----Prompt----");
           System.out.println("1. Get Immediate Parents of a node");
@@ -21,9 +23,11 @@ public class InitPromptBarUtil {
           System.out.println("8. Add node to a tree");
           System.out.println("9. Exit");
           System.out.println("Choose any one option");
+          //handle the exception case for number entered more than 9
           try {
               choice = Integer.parseInt(scanner.next());
-          } catch(NumberFormatException e) {
+          } 
+          catch(NumberFormatException e) {
               System.out.println("Invalid choice!");
           }
           switch(choice) {
@@ -41,7 +45,7 @@ public class InitPromptBarUtil {
                   break;
               case 7:DependencyGraph.addDependency();
                   break;
-              case 8:DependencyGraph.addNode(_uniqueId);
+              case 8:DependencyGraph.addNode(uniqueId);
                   break;
               case 9:System.exit(0);
                   break;

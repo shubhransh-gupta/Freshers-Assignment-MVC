@@ -2,28 +2,30 @@ package assignment3.models;
 import java.util.HashSet;
 
 public class Node {
-    private int node_id;
-    private String node_name;
+    private int nodeId;
+    private String nodeName;
     public HashSet<Node> parents = null;
     public HashSet<Node> children = null;
     public Node() {
         parents = new HashSet<Node>();
         children = new HashSet<Node>();
     }
-
-    public void setNodeId(int node_id) {
-        this.node_id=node_id;
+    //set nodeId
+    public void setNodeId(int nodeId) {
+        this.nodeId=nodeId;
     }
-
-    public void setNodeName(String node_name) {
-        this.node_name=node_name;
+    //set nodeName
+    public void setNodeName(String nodeName) {
+        this.nodeName=nodeName;
     }
+    //getter function of nodeId and nodeName
     public int getNodeid() {
-        return this.node_id;
+        return this.nodeId;
     }
     public String getNodeName() {
-        return this.node_name;
+        return this.nodeName;
     }
+    //To add a parent of current node
     public void addParent(Node parent) {
         if(this.parents.contains(parent)) {
             System.out.println("Already added as a parent");
@@ -32,6 +34,7 @@ public class Node {
             this.parents.add(parent);
         }
     }
+    //To add a child of current node
     public void addChild(Node child) {
         if(this.children.contains(child)) {
             System.out.println("Already added as a child");
@@ -40,6 +43,7 @@ public class Node {
             this.children.add(child);
         }
     }
+    //To delete parent of current node
     public void deleteParent(Node parent) {
         if(this.parents.contains(parent)) {
             this.parents.remove(parent);
@@ -48,6 +52,7 @@ public class Node {
             System.out.println("Dependency not found");
         }
     }
+    //To delete child of current node
     public void deleteChild(Node child) {
         if(this.children.contains(child)) {
             this.children.remove(child);
