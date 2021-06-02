@@ -24,7 +24,7 @@ public class GraphNodeOperation{
     {
         Node currentNode=null;
         for(Node temp:nodeList) {
-            if(temp.getNodeid()==nodeId) {
+            if(temp.getNodeId()==nodeId) {
                 currentNode=temp;
                 break;
             }

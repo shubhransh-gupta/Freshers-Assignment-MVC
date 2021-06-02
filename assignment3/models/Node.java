@@ -19,7 +19,7 @@ public class Node {
         this.nodeName=nodeName;
     }
     //getter function of nodeId and nodeName
-    public int getNodeid() {
+    public int getNodeId() {
         return this.nodeId;
     }
     public String getNodeName() {
@@ -63,6 +63,6 @@ public class Node {
     }
     @Override
     public String toString() {
-        return ("Node id -> "+this.getNodeid()+"\n Node name -> "+this.getNodeName());
+        return ("Node id -> "+this.getNodeId()+"\n Node name -> "+this.getNodeName());
     }
 }
