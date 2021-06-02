@@ -14,12 +14,11 @@ import assignment3.models.Node;
 import assignment3.utils.GraphNodeOperation;
 
 class DependecyTest {
-
 	@Test
 	void delDependencyTest() {
 		InputStream sysInBackup = System.in; 
 		ByteArrayInputStream input = new ByteArrayInputStream(("1" + System.lineSeparator() + "2").getBytes());
-        //creating two nodes
+		//creating two testing nodes
 		GraphNodeOperation.createNodeUtil(1,"One");
 		GraphNodeOperation.createNodeUtil(2,"Two");
 		//setting the buffer for console input
@@ -36,7 +35,7 @@ class DependecyTest {
 	void addDependencyTest() {
 		InputStream sysInBackup = System.in; 
 		ByteArrayInputStream input = new ByteArrayInputStream(("1" + System.lineSeparator() + "2").getBytes());
-        //creating two nodes
+		//creating two testing nodes
 		GraphNodeOperation.createNodeUtil(1,"One");
 		GraphNodeOperation.createNodeUtil(2,"Two");
 		//setting the buffer for console input
@@ -53,7 +52,7 @@ class DependecyTest {
 	void getAncestorsTest() {
 		InputStream sysInBackup = System.in; 
 		ByteArrayInputStream input = new ByteArrayInputStream(("2").getBytes());
-        //creating two nodes
+		//creating two nodes
 		GraphNodeOperation.createNodeUtil(1,"One");
 		GraphNodeOperation.createNodeUtil(2,"Two");		
 		//setting the buffer for console input
@@ -73,7 +72,7 @@ class DependecyTest {
 	void getDescendantsTest() {
 		InputStream sysInBackup = System.in; 
 		ByteArrayInputStream input = new ByteArrayInputStream(("1").getBytes());
-        //creating two nodes
+		//creating two nodes
 		GraphNodeOperation.createNodeUtil(1,"One");
 		GraphNodeOperation.createNodeUtil(2,"Two");		
 		//setting the buffer for console input

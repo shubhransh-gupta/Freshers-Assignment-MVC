@@ -25,7 +25,7 @@ class DependencyGraphTest {
 		HashSet<Integer> uniqueId= new HashSet<Integer>();
 		InputStream sysInBackup = System.in; // backup System.in to restore it later
 		ByteArrayInputStream input1 = new ByteArrayInputStream(("1" + System.lineSeparator() + "One").getBytes());
-	    //creating two testing nodes
+		//creating two testing nodes
 		GraphNodeOperation.createNodeUtil(1,"One");
 		GraphNodeOperation.createNodeUtil(2,"Two");
 		System.setIn(input1);
@@ -64,7 +64,7 @@ class DependencyGraphTest {
     void addDependencyTest() {
 		InputStream sysInBackup = System.in; 
 		ByteArrayInputStream input = new ByteArrayInputStream(("1" + System.lineSeparator() + "2").getBytes());
-        //creating two testing nodes
+		//creating two testing nodes
 		GraphNodeOperation.createNodeUtil(1,"One");
 		GraphNodeOperation.createNodeUtil(2,"Two");
 		//setting the buffer for console input
