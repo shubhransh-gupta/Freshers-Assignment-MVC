@@ -60,7 +60,7 @@ class DependencyGraphTest {
 	    System.setOut(new PrintStream(outContent));
 	    System.setErr(new PrintStream(errContent));
 	}*/
-    @Test
+	@Test
     void addDependencyTest() {
 		InputStream sysInBackup = System.in; 
 		ByteArrayInputStream input = new ByteArrayInputStream(("1" + System.lineSeparator() + "2").getBytes());
