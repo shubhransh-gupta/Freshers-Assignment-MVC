@@ -1,46 +1,30 @@
-class Item
+import 'dart:core';
+import 'package:dart_assignment1/component/item_factory.dart';
+
+abstract class Item
 {
-    String? name;
-    double? price;
-    int? quantity;
-    String? type;
+    String? _name;
+    double? _price;
+    int? _quantity;
+    ItemType? _type;
+    double? _tax;
   
-    Item(String name,double price,int quantity,String Type)
+    Item(String name,double price,int quantity,ItemType type)
     {
-        this.name =name;
-        this.price = price;
-        this.quantity=quantity;
-        type=Type;
+        _name =name;
+        _price = price;
+        _quantity=quantity;
+        _type=type;
     }
+    set tax(tax)=> _tax=tax;
 
-    void setPrice(double price)
-    {
-        this.price = price;
-    }
+    String? get name=> _name;
 
-    String? getName()
-    {
-        return name;
-    }
+    int? get quantity => _quantity;
 
-    int? getQuantity()
-    {
-        return quantity;
-    }
+    double? get price => _price;
 
-    double? getPrice()
-    {
-        return price;
-    }
+    ItemType? get type => _type;
 
-    String? getType()
-    {
-        return type;
-    }
-   
-    double getTax() {
-         return 0;
-    }
-
-    
+    double? get tax=> _tax; 
 }
