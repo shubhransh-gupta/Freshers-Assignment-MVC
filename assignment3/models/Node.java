@@ -23,7 +23,7 @@ public class Node {
         return this.nodeId;
     }
     public String getNodeName() {
-        return this.nodeName;
+    	return this.nodeName;
     }
     //To add a parent of current node
     public void addParent(Node parent) {

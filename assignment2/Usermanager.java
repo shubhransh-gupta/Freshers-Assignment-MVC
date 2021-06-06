@@ -13,6 +13,7 @@ import assignment2.data.User;
 import assignment2.exceptions.InvalidUserDetailException;
 
 public class UserManager {	
+	//taking input from user and add the user locally
 	public static User addUser() throws InvalidUserDetailException 
 	{
         @SuppressWarnings("resource")
@@ -55,6 +56,7 @@ public class UserManager {
             throw new InvalidUserDetailException("Process Failed : You must choose at least 4 out of 6 courses ! ");
         return new User(name, age, address, roll, coursesList);
     }
+	//display user in sorted form based on name, roll no or any other input given by user
 	public static void displayUsersinSortedForm(Set<User> user) 
 	{
 		int ch, order;
@@ -69,7 +71,7 @@ public class UserManager {
         System.out.println("2. Descending order");
         System.out.print("Enter choice : ");
         order = Integer.parseInt(in.nextLine());
-        //handling other options
+        //handling for other options
         if (order < 1 || order > 2 || ch < 1 || ch > 4) 
         {
             System.out.println("Invalid Option ! ");
@@ -95,7 +97,7 @@ public class UserManager {
                     result = a.getAddress().compareTo(b.getAddress());
                     break;
             }
-         //If descending order is selected , invert the sign of result
+            //If descending order is selected , invert the sign of result
             if (order == 2) result = -result;
             return result;
         }).forEach(u -> u.display());

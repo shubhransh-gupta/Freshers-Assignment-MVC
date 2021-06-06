@@ -7,8 +7,8 @@ import assignment2.data.User;
 import assignment2.exceptions.InvalidUserDetailException;
 import assignment2.util.DiskManager;
 
-public class InitPromptBarView {
-	public static void initPrompt(Set<User> users) {		  
+public class ApplicationView {
+	public static void init(Set<User> users) {		  
 		  //get the user from the disk if saved previously
 		  users= DiskManager.getUsers();		 
 		  int choice;

@@ -12,6 +12,7 @@ import java.util.TreeSet;
 import assignment2.data.User;
 
 public class DiskManager {
+	//get the existing user from the disk
 	public static Set<User> getUsers() 
 	{
         FileInputStream fstream = null;
@@ -33,6 +34,7 @@ public class DiskManager {
         }
         return users;
    }
+	//changes are saved on the disk	
    public static void saveOnDisk(Set<User> users) {
 	   try {
            FileOutputStream fileOutputStream = new FileOutputStream("data.txt");

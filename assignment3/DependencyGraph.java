@@ -8,13 +8,14 @@ import assignment3.utils.GraphNodeOperation;
 public class DependencyGraph {
 	static Scanner scanner =new Scanner(System.in);
 	//To get the parents of the given node
-    public static void getParents() {
+	public static void getParents() {
         System.out.println("Enter node id");
         int nodeId=0;
         try {
             nodeId=Integer.parseInt(scanner.next());
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node tempNode=null;
+            //get the node in Graph from nodeId
             for(Node temp:nodeList) {
                 if(temp.getNodeId()==nodeId) {
                     tempNode=temp;
@@ -59,6 +60,7 @@ public class DependencyGraph {
             nodeId=Integer.parseInt(scanner.next());
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node tmpNode=null;
+            //get the node in Graph from nodeId
             for(Node tmp:nodeList) {
                 if(tmp.getNodeId()==nodeId) {
                     tmpNode=tmp;
@@ -69,7 +71,8 @@ public class DependencyGraph {
             } else {
             	GraphNodeOperation.displayAncestorsUtil(tmpNode);
             }
-        } catch(NumberFormatException e) {
+        } 
+        catch(NumberFormatException e) {
             System.out.println("Invalid input!");
         }
     }
@@ -81,6 +84,7 @@ public class DependencyGraph {
             nodeId=Integer.parseInt(scanner.next());
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node tmpNode=null;
+            //get the node in Graph from nodeId
             for(Node tmp:nodeList) {
                 if(tmp.getNodeId()==nodeId) {
                     tmpNode=tmp;
@@ -105,6 +109,7 @@ public class DependencyGraph {
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node parent_node=null;
             Node child_node=null;
+            //get the node in Graph from nodeId
             for(Node tmp:nodeList) {
                 if(tmp.getNodeId()==parent_id) {
                     parent_node=tmp;
@@ -135,6 +140,7 @@ public class DependencyGraph {
             ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
             Node parent_node=null;
             Node child_node=null;
+            //get the node in Graph from nodeId
             for(Node tmp:nodeList) {
                 if(tmp.getNodeId()==parent_id) {
                     parent_node=tmp;
@@ -160,6 +166,7 @@ public class DependencyGraph {
         System.out.println("Enter Node Id");
         try {
             int nodeId=Integer.parseInt(scanner.next());
+            //checking whether it is uniqueId or not
             if(uniqueId.contains(nodeId)) {
                 System.out.println("Unique Id is required!");
             } else {

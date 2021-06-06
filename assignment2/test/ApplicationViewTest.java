@@ -11,10 +11,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import assignment2.data.User;
-import assignment2.util.DiskManager;
-import assignment2.view.InitPromptBarView;
+import assignment2.view.ApplicationView;
 
-class IntpromptBarViewTest {
+class ApplicationViewTest {
 	private final PrintStream standardOut = System.out;
 	private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
@@ -23,16 +22,16 @@ class IntpromptBarViewTest {
 	    System.setOut(new PrintStream(outputStreamCaptor));
 	}
 	@Test
-	void intPromptBarTest() {
+	void initTest() {
 		//IntpromptBarViewTest input = new IntpromptBarViewTest();
 		Set<User> userList = null ;
-		InitPromptBarView.initPrompt(userList);
+		ApplicationView.init(userList);
 		ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
         print(outContent);
 		String expectedOutput  = "1.Add User details\r\n 2.Display User details\r\n3.Delete User details\r\n4.Save User details\r\n5.Exit\r\n\r\nEnter choice :";
 
-	     // Do the actual assertion.
+	    // Do the actual assertion.
 		assertEquals(expectedOutput, outContent.toString());
 	}
 	private void print(ByteArrayOutputStream outContent) {
@@ -43,5 +42,4 @@ class IntpromptBarViewTest {
 	public void tearDown() {
 	    System.setOut(standardOut);
 	}
-
 }

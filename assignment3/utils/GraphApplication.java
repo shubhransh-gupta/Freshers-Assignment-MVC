@@ -4,8 +4,8 @@ import assignment3.DependencyGraph;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class InitPromptBarUtil {  
-  public static void initPromptBar() {
+public class GraphApplication {  
+  public static void init() {
 	  Scanner scanner =new Scanner(System.in);
 	  //to store unique node Id for each nodes
 	  HashSet<Integer> uniqueId=new HashSet<Integer>();  
