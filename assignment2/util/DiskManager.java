@@ -15,37 +15,37 @@ public class DiskManager {
 	//get the existing user from the disk
 	public static Set<User> getUsers() 
 	{
-        FileInputStream fstream = null;
-        Set<User> users = new TreeSet<>();
-        try {
-            fstream = new FileInputStream("data.txt");
-            ObjectInputStream objectInputStream = new ObjectInputStream(fstream);
-            users = (Set<User>) objectInputStream.readObject();
-            objectInputStream.close();
-        } 
-        catch (FileNotFoundException e){
-        	System.out.println("No User details stored in disk yet.");
-        } 
-        catch (IOException e){
-            e.printStackTrace();
-        } 
-        catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
-        return users;
-   }
+		FileInputStream fstream = null;
+		Set<User> users = new TreeSet<>();
+		try {
+			fstream = new FileInputStream("data.txt");
+			ObjectInputStream objectInputStream = new ObjectInputStream(fstream);
+			users = (Set<User>) objectInputStream.readObject();
+			objectInputStream.close();
+		} 
+		catch (FileNotFoundException e){
+			System.out.println("No User details stored in disk yet.");
+		} 
+		catch (IOException e){
+			e.printStackTrace();
+		} 
+		catch (ClassNotFoundException e){
+			e.printStackTrace();
+		}
+		return users;
+	}
 	//changes are saved on the disk	
-   public static void saveOnDisk(Set<User> users) {
-	   try {
-           FileOutputStream fileOutputStream = new FileOutputStream("data.txt");
-           ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-           objectOutputStream.writeObject(users);
-           objectOutputStream.close();
-           System.out.println("Saved Sucessfully");
-       } 
-	   catch(Exception e) {
-           System.out.println("Error Occurred : " + e.getMessage());
-	   }
-	   return;
-   }
+	public static void saveOnDisk(Set<User> users) {
+		try {
+			FileOutputStream fileOutputStream = new FileOutputStream("data.txt");
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			objectOutputStream.writeObject(users);
+			objectOutputStream.close();
+			System.out.println("Saved Sucessfully");
+		} 
+		catch(Exception e) {
+			System.out.println("Error Occurred : " + e.getMessage());
+		}
+		return;
+	}
 }
