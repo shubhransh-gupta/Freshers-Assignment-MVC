@@ -2,18 +2,21 @@ package assignment2.view;
 
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
+
 import assignment2.UserManager;
 import assignment2.data.User;
 import assignment2.exceptions.InvalidUserDetailException;
 import assignment2.util.DiskManager;
 
-public class ApplicationView {
-	public static void init(Set<User> users) {		  
-		  //get the user from the disk if saved previously
-		  users= DiskManager.getUsers();		 
-		  int choice;
-		  while(true) 
-		  {
+public class UserApplication{
+	public static void init() {
+		Set<User> users = new TreeSet<User>();
+		//get the user from the disk if saved previously
+		users= DiskManager.getUsers();
+		int choice;
+		while(true) 
+		{
 			        Scanner scanner = new Scanner(System.in);	
 				    System.out.println("1.Add User details");
 			        System.out.println("2.Display User details");
@@ -52,7 +55,7 @@ public class ApplicationView {
 		                       }
 		                       System.exit(0);			        
 			        }
-			scanner.close();
+			        scanner.close();
 		  }		  
 	  }
 }

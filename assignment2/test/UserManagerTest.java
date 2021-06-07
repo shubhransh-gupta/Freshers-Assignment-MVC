@@ -23,7 +23,7 @@ class UserManagerTest {
 	@Test
 	void addUserTest() {
 		 ClassLoader classLoader = getClass().getClassLoader();
-		 File file = new File(classLoader.getResource("assignment2/test/user1.txt").getFile());
+		 File file = new File(classLoader.getResource("assignment2/test/user1").getFile());
 		 try {
 			    //File file = new File(classLoader.getResource("assignment2/user1").getFile());
 	            System.setIn(new FileInputStream(file));
@@ -42,7 +42,7 @@ class UserManagerTest {
 		FileInputStream fstream = null;
         Set<User> users = new TreeSet<>();
         try {
-            fstream = new FileInputStream("data.txt");
+        	fstream = new FileInputStream("data.txt");
             ObjectInputStream objectInputStream = new ObjectInputStream(fstream);
             users = (Set<User>) objectInputStream.readObject();
             objectInputStream.close();
