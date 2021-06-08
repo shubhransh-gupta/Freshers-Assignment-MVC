@@ -1,10 +1,6 @@
-import 'package:dart_assignment1/Utils/InitPromptBarUtil.dart';
+import 'package:dart_assignment1/Utils/item_application.dart';
 
 void main(List<String> arguments) {
   //Opening PromptBar to take input from User
-   InitPromptBarUtil.initPromptBar();        
-                
+   ItemApplication.init();                     
 }
-        
-        
-

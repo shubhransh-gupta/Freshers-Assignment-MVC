@@ -1,78 +1,74 @@
-import 'package:dart_assignment1/component/Item.dart';
+import 'package:dart_assignment1/component/item.dart';
 import 'package:test/test.dart';
-import 'package:dart_assignment1/component/ItemFactory.dart';
-
+import 'package:dart_assignment1/component/item_factory.dart';
 
 void main() {
-  //first create menu to prompt and ask input from the user 
+  //first create menu to prompt and ask input from the user
   // create a class Item to explain how item will look
-  
-  //Testing Factory Design pattern 
-  
-  test('ItemFactoryTest', () {
-    ItemFactory demandItem = new ItemFactory('Sony',2999,200,'imported');
-    Item? item = demandItem.getItem();
-    expect(item!.getType(),'imported');
-  });
 
-  test('ItemFactoryTest', () {
-    ItemFactory demandItem = new ItemFactory('Boat',2999,200,'raw');
-    Item? item = demandItem.getItem();
-    expect(item!.getType(),'raw');
-   
-  });
+  //Testing Factory Design pattern
+  group('ItemFactory Test', () {
+    test('Test for Imported Item', () {
+      var demandItem = ItemFactory('Sony', 2999, 200, ItemType.imported);
+      var item = demandItem.getItem();
+      expect(item!.type, ItemType.imported);
+    });
 
-  test('ItemFactoryTest', () {
-    ItemFactory demandItem = new ItemFactory('Beats',2999,200,'manufactured');
-    Item? item = demandItem.getItem();
-    expect(item!.getType(),'manufactured');
+    test('Test for Raw Item', () {
+      var demandItem = ItemFactory('Boat', 2999, 200, ItemType.raw);
+      var item = demandItem.getItem();
+      expect(item!.type, ItemType.raw);
+    });
+
+    test('Test for Manufactured Item', () {
+      var demandItem = ItemFactory('Beats', 2999, 200, ItemType.manufactured);
+      var item = demandItem.getItem();
+      expect(item!.type, ItemType.manufactured);
+    });
   });
 
   //testing taxs value
-  test('Testing the RequiredTax', () {
-    ItemFactory demandItem = new ItemFactory('Beats',2999,200,'manufactured');
-    Item? item = demandItem.getItem();
-    expect(item!.getTax(),442.3525);
+  group('Testing the RequiredTax', () {
+    test('RequiredTax for Manufactured Item', () {
+      var demandItem = ItemFactory('Beats', 2999, 200, ItemType.manufactured);
+      // ignore: omit_local_variable_types
+      Item? item = demandItem.getItem();
+      expect(item!.tax, 442.3525);
+    });
+    test('RequiredTax for Raw Item', () {
+      var demandItem = ItemFactory('Boat', 2999, 200, ItemType.raw);
+      var item = demandItem.getItem();
+      expect(item!.tax, 374.875);
+    });
+    test('RequiredTax for Imported Item', () {
+      var demandItem = ItemFactory('Sony', 2999, 200, ItemType.imported);
+      var item = demandItem.getItem();
+      expect(item!.tax, 464.845);
+    });
   });
-  test('Testing the RequiredTax', () {
-    ItemFactory demandItem = new ItemFactory('Boat',2999,200,'raw');
-    Item? item = demandItem.getItem();
-    expect(item!.getTax(),374.875);
+
+  group('Testing Inheritance for different items', () {
+    test('Test for Imported Item', () {
+      var demandItem = ItemFactory('Sony', 2999, 200, ItemType.imported);
+      var item = demandItem.getItem();
+      expect(item!.name, 'Sony');
+      expect(item.price, 2999);
+      expect(item.quantity, 200);
+    });
+    test('Test for Raw Item', () {
+      var demandItem = ItemFactory('Beats', 2999, 200, ItemType.raw);
+      var item = demandItem.getItem();
+      expect(item!.name, 'Beats');
+      expect(item.price, 2999);
+      expect(item.quantity, 200);
+    });
+    test('Test for Manufactured Item', () {
+      var demandItem = ItemFactory('Apple', 2999, 200, ItemType.manufactured);
+      var item = demandItem.getItem();
+      expect(item!.name, 'Apple');
+      expect(item.price, 2999);
+      expect(item.quantity, 200);
+    });
   });
-  test('Testing the RequiredTax', () {
-    ItemFactory demandItem = new ItemFactory('Sony',2999,200,'imported');
-    Item? item = demandItem.getItem();
-    expect(item!.getTax(),464.845);
-  });
-  test('Veryfying Item', () {
-    ItemFactory demandItem = new ItemFactory('Sony',2999,200,'imported');
-    Item? item = demandItem.getItem();
-    expect(item!.getName(),'Sony');
-    expect(item.getPrice(),2999);
-    expect(item.getQuantity(),200);
-  });
-  test('Veryfying Item', () {
-    ItemFactory demandItem = new ItemFactory('Beats',2999,200,'imported');
-    Item? item = demandItem.getItem();
-    expect(item!.getName(),'Beats');
-    expect(item.getPrice(),2999);
-    expect(item.getQuantity(),200);
-  });
-  test('Veryfying Item', () {
-    ItemFactory demandItem = new ItemFactory('Apple',2999,200,'imported');
-    Item? item = demandItem.getItem();
-    expect(item!.getName(),'Apple');
-    expect(item.getPrice(),2999);
-    expect(item.getQuantity(),200);
-  });
-/*
-  test('Displaying output', () {
-    List<Item>items=[];
-    ItemFactory demandItem = new ItemFactory('Apple',2999,200,'imported');
-    Item? item = demandItem.getItem();
-    items.add(item!);
-    BasicUtils.displayItems(items);
-    
-  });*/
 
 }

@@ -19,7 +19,7 @@ class DiskManagerTest {
 		assertEquals(22,((TreeSet<User>)userList).first().getAge());
 		assertEquals("vizag",((TreeSet<User>)userList).first().getAddress());
 		assertEquals(24,((TreeSet<User>)userList).first().getRollNumber());
-		//checking for any negative value
+		//checking for false values
 		assertNotEquals(-22,((TreeSet<User>)userList).first().getAge());
 		assertNotEquals(-24,((TreeSet<User>)userList).first().getRollNumber());
 	}
