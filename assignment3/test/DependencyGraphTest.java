@@ -29,13 +29,13 @@ class DependencyGraphTest {
 		GraphNodeOperation.createNodeUtil(1,"One");
 		GraphNodeOperation.createNodeUtil(2,"Two");
 		System.setIn(input1);
-		
+
 		DependencyGraph.addNode(uniqueId);
 		ArrayList<Node> nodeList = GraphNodeOperation.getNodeList();
 		assertEquals("One", ((String) nodeList.get(0).getNodeName()));
 		assertEquals(1, ((Integer) nodeList.get(0).getNodeId()));
 		System.setIn(sysInBackup);
-		
+
 	}
 	@Test
 	void deleteNodeTest() {
@@ -50,18 +50,9 @@ class DependencyGraphTest {
 		assertNotEquals(1,((Integer) nodeList.get(0).getNodeId()));
 		assertNotEquals("One", ((String) nodeList.get(0).getNodeName()));
 		System.setIn(sysInBackup);
-	}/*
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-	private final PrintStream originalOut = System.out;
-	private final PrintStream originalErr = System.err;
-	@Before
-	public void setUpStreams() {
-	    System.setOut(new PrintStream(outContent));
-	    System.setErr(new PrintStream(errContent));
-	}*/
+	}
 	@Test
-    void addDependencyTest() {
+	void addDependencyTest() {
 		InputStream sysInBackup = System.in; 
 		ByteArrayInputStream input = new ByteArrayInputStream(("1" + System.lineSeparator() + "2").getBytes());
 		//creating two testing nodes
@@ -76,13 +67,5 @@ class DependencyGraphTest {
 		assertEquals(1, nodeList.get(1).parents.size());
 		assertEquals(1, nodeList.get(0).children.size());
 		System.setIn(sysInBackup);
-		
-		
-    }
-    /*@After
-    public void restoreStreams() {
-        System.setOut(originalOut);
-        System.setErr(originalErr);
-    }*/
-    
+	}
 }

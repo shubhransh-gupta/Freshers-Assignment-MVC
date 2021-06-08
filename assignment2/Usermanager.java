@@ -117,10 +117,9 @@ public class UserManager {
 		//searching the person with the given roll no and delete it
 		final User[] filteredUser = {null};
 		user.stream().filter(e -> e.getRollNumber() == rollno).findFirst().ifPresent(u -> filteredUser[0] = u);
-		User userTobeDeleted = filteredUser[0];
-		if (userTobeDeleted != null) 
-			user.remove(userTobeDeleted);
-		System.out.println("User : " + userTobeDeleted.getName() + " deleted.");
+		if (filteredUser[0] != null) 
+			user.remove(filteredUser[0]);
+		System.out.println("User : " + filteredUser[0].getName() + " deleted.");
 		in.close();	
 	}
 }

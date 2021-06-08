@@ -1,4 +1,4 @@
-import 'package:dart_assignment1/component/Item.dart';
+import 'package:dart_assignment1/component/item.dart';
 import 'package:test/test.dart';
 import 'package:dart_assignment1/component/item_factory.dart';
 

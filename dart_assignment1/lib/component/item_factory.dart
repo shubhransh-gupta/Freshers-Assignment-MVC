@@ -1,7 +1,7 @@
-import 'ImportedItem.dart';
-import 'Item.dart';
-import 'ManufacturedItem.dart';
-import 'RawItem.dart';
+import 'imported_item.dart';
+import 'item.dart';
+import 'manufactured_item.dart';
+import 'raw_item.dart';
 
 enum ItemType { raw, manufactured, imported }
 

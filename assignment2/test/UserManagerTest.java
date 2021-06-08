@@ -25,7 +25,6 @@ class UserManagerTest {
 		ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("assignment2/test/user1").getFile());
 		try {
-			//File file = new File(classLoader.getResource("assignment2/user1").getFile());
 			System.setIn(new FileInputStream(file));
 		} 
 		catch (FileNotFoundException e) {

@@ -11,12 +11,12 @@ import assignment2.util.DiskManager;
 
 public class UserApplication{
 	public static void init() {
-		Set<User> users = new TreeSet<User>();
-		//get the user from the disk if saved previously
-		users= DiskManager.getUsers();
-		int choice;
+		Set<User> users = new TreeSet<User>();		
 		while(true) 
 		{
+			//get the user from the disk if saved previously
+			users= DiskManager.getUsers();
+			int choice;
 			Scanner scanner = new Scanner(System.in);	
 			System.out.println("1.Add User details");
 			System.out.println("2.Display User details");
@@ -56,6 +56,6 @@ public class UserApplication{
 				System.exit(0);			        
 			}
 			scanner.close();
-		  }		  
+		}		  
 	}
 }
