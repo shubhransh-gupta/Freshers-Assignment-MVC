@@ -6,7 +6,7 @@ import assignment3.models.Node;
 import assignment3.utils.GraphNodeOperation;
 import assignment3.utils.BasicUtils;
 
-public class DependencyGraph {s
+public class DependencyGraph {
 	//To get the parents of the given node
 	public static void getParents() {
 		System.out.println("Enter node id");
