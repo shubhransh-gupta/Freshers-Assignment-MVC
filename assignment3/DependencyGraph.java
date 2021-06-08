@@ -4,15 +4,15 @@ import java.util.HashSet;
 import java.util.Scanner;
 import assignment3.models.Node;
 import assignment3.utils.GraphNodeOperation;
+import assignment3.utils.BasicUtils;
 
-public class DependencyGraph {
-	static Scanner scanner =new Scanner(System.in);
+public class DependencyGraph {s
 	//To get the parents of the given node
 	public static void getParents() {
 		System.out.println("Enter node id");
 		int nodeId=0;
 		try {
-			nodeId=Integer.parseInt(scanner.next());
+			nodeId= BasicUtil.takeIntInput();
 			ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
 			Node tempNode=null;
 			//get the node in Graph from nodeId
@@ -35,7 +35,7 @@ public class DependencyGraph {
 		System.out.println("Enter node id");
 		int nodeId=0;
 		try {
-			nodeId=Integer.parseInt(scanner.next());
+			nodeId=BasicUtil.takeIntInput();
 			ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
 			Node tmpNode=null;
 			for(Node tmp:nodeList) {
@@ -57,7 +57,7 @@ public class DependencyGraph {
 		System.out.println("Enter node id");
 		int nodeId=0;
 		try {
-			nodeId=Integer.parseInt(scanner.next());
+			nodeId=BasicUtil.takeIntInput();
 			ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
 			Node tmpNode=null;
 			//get the node in Graph from nodeId
@@ -81,7 +81,7 @@ public class DependencyGraph {
 		System.out.println("Enter node id");
 		int nodeId=0;
 		try {
-			nodeId=Integer.parseInt(scanner.next());
+			nodeId=BasicUtil.takeIntInput();
 			ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
 			Node tmpNode=null;
 			//get the node in Graph from nodeId
@@ -103,9 +103,9 @@ public class DependencyGraph {
 	public static void addDependency() {
 		System.out.println("Enter parent nodeId");
 		try {
-			int parent_id=Integer.parseInt(scanner.next());
+			int parent_id=BasicUtil.takeIntInput();
 			System.out.println("Enter child nodeId");
-			int child_id=Integer.parseInt(scanner.next());
+			int child_id=BasicUtil.takeIntInput();
 			ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
 			Node parent_node=null;
 			Node child_node=null;
@@ -134,9 +134,9 @@ public class DependencyGraph {
 	public static void delDependency() {
 		System.out.println("Enter parent nodeId");
 		try {
-			int parent_id=Integer.parseInt(scanner.next());
+			int parent_id=BasicUtil.takeIntInput();
 			System.out.println("Enter child nodeId");
-			int child_id=Integer.parseInt(scanner.next());
+			int child_id=BasicUtil.takeIntInput();
 			ArrayList<Node> nodeList=GraphNodeOperation.getNodeList();
 			Node parent_node=null;
 			Node child_node=null;
@@ -165,14 +165,14 @@ public class DependencyGraph {
 	public static void addNode(HashSet<Integer> uniqueId) {
 		System.out.println("Enter Node Id");
 		try {
-			int nodeId=Integer.parseInt(scanner.next());
+			int nodeId=BasicUtil.takeIntInput();
 			//checking whether it is uniqueId or not
 			if(uniqueId.contains(nodeId)) {
 				System.out.println("Unique Id is required!");
 			} else {
 				uniqueId.add(nodeId);
 				System.out.println("Enter node name!");
-				String nodeName=scanner.next();
+				String nodeName=BasicUtil.takeLineInput();
 				GraphNodeOperation.createNodeUtil(nodeId, nodeName);
 				System.out.println("Node added!");
 			}
@@ -184,7 +184,7 @@ public class DependencyGraph {
 	public static void delNode() {
 		System.out.println("Enter node id of node to be deleted");
 		try {
-			int nodeId=Integer.parseInt(scanner.next());
+			int nodeId=BasicUtil.takeIntInput();
 			GraphNodeOperation.deleteNodeUtil(nodeId);
 		} catch(NumberFormatException e) {
 			System.out.println("Invalid Input type!");

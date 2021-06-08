@@ -6,6 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
+import assignment2.util.BasicUtil;
 
 
 import assignment2.data.Course;
@@ -17,15 +18,14 @@ public class UserManager {
 	public static User addUser() throws InvalidUserDetailException 
 	{
 		@SuppressWarnings("resource")
-		Scanner in = new Scanner(System.in);
 		System.out.println("Enter user details");
 		System.out.print("Full Name : ");
-		String name = in.nextLine();
+		String name = BasicUtil.takeLineInput();
 		System.out.print("Age : ");
 		int age, roll;
 		try 
 		{
-			age = Integer.parseInt(in.nextLine());
+			age = BasicUtil.takeIntInput();
 			if (age <= 0) 
 				throw new NumberFormatException();
 		} 
@@ -34,11 +34,11 @@ public class UserManager {
 			throw new InvalidUserDetailException("Age should be a valid +ve integer");
 		}
 		System.out.print("Address : ");
-		String address = in.nextLine();
+		String address = BasicUtil.takeLineInput();
 		System.out.print("Roll Number : ");
 		try 
 		{
-			roll = Integer.parseInt(in.nextLine());
+			roll = BasicUtil.takeIntInput();
 			if (roll <= 0) 
 				throw new NumberFormatException();
 		} 
@@ -48,7 +48,7 @@ public class UserManager {
 		}
 		System.out.print("Courses enrolled : ");
 
-		String[] courses = in.nextLine().split(" ");
+		String[] courses = BasicUtil.takeLineInput().split(" ");
 		List<Course> coursesList = new ArrayList<>(
 				Stream.of(courses).map(c -> new Course(c)).collect(Collectors.toList())
 				);
@@ -59,23 +59,21 @@ public class UserManager {
 	//display user in sorted form based on name, roll no or any other input given by user
 	public static void displayUsersinSortedForm(Set<User> user) 
 	{
-		int ch, order;
-		Scanner in = new Scanner(System.in);	
+		int ch, order;	
 		System.out.println("1. Name");
 		System.out.println("2. Roll number");
 		System.out.println("3. Age");
 		System.out.println("4. Address");
 		System.out.print("Fields to be choosed for sorting (Enter choice) :  ");        
-		ch = Integer.parseInt(in.nextLine());
+		ch = BasicUtil.takeIntInput();
 		System.out.println("1. Ascending order ");
 		System.out.println("2. Descending order");
 		System.out.print("Enter choice : ");
-		order = Integer.parseInt(in.nextLine());
+		order = BasicUtil.takeIntInput();
 		//handling for other options
 		if (order < 1 || order > 2 || ch < 1 || ch > 4) 
 		{
 			System.out.println("Invalid Option ! ");
-			in.close();
 			return;
 		}    
 		System.out.println("------------------------------------------------------------------------------------------------------------");
@@ -101,17 +99,15 @@ public class UserManager {
 			if (order == 2) result = -result;
 			return result;
 		}).forEach(u -> u.display());
-		in.close();		
+			
 	}
 	public static void deleteUser(Set<User> user) {
 		System.out.println("Enter roll number : ");
-		Scanner in = new Scanner(System.in);
-		int rollno=in.nextInt();
+		int rollno=BasicUtil.takeIntInput();
 		//handling negative test cases
 		if(rollno<=0) 
 		{
-			System.out.println("Invalid Roll number ! It must be an +ve integer ");
-			in.close();	
+			System.out.println("Invalid Roll number ! It must be an +ve integer ");	
 			return;
 		}
 		//searching the person with the given roll no and delete it
@@ -120,6 +116,5 @@ public class UserManager {
 		if (filteredUser[0] != null) 
 			user.remove(filteredUser[0]);
 		System.out.println("User : " + filteredUser[0].getName() + " deleted.");
-		in.close();	
 	}
 }

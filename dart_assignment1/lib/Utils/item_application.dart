@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:dart_assignment1/component/item.dart';
 import 'package:dart_assignment1/component/item_factory.dart';
-import 'basic_utils.dart';
+import 'basic_util.dart';
 
 class ItemApplication {
   //taking Input from the user
