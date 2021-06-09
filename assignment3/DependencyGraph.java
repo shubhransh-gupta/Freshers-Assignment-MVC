@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import assignment3.models.Node;
 import assignment3.utils.GraphNodeOperation;
-import assignment3.utils.BasicUtils;
+import assignment3.utils.BasicUtil;
 
 public class DependencyGraph {
 	//To get the parents of the given node
